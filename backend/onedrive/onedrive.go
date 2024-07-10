@@ -2279,6 +2279,13 @@ func (o *Object) Open(ctx context.Context, options ...fs.OpenOption) (in io.Read
 			return errors.New("stopped after 10 redirects")
 		}
 		req.Header.Del("Authorization") // remove Auth header
+		// Add AVOverride parameter back if missing.
+		// Onedrive sometimes does this itself but sometimes doesn't
+		if o.fs.opt.AVOverride {
+			parameters := req.URL.Query()
+			parameters.Set("AVOverride", "1")
+			req.URL.RawQuery = parameters.Encode()
+		}
 		redirectReq = req
 		return http.ErrUseLastResponse
 	}
