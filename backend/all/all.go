@@ -44,7 +44,7 @@ import (
 	_ "github.com/rclone/rclone/backend/putio"
 	_ "github.com/rclone/rclone/backend/qingstor"
 	_ "github.com/rclone/rclone/backend/quatrix"
-	_ "github.com/ChrisFiola/rclone/backend/realdebrid"
+	_ "github.com/ChrisFiola/rclone/tree/master/backend/realdebrid"
 	_ "github.com/rclone/rclone/backend/s3"
 	_ "github.com/rclone/rclone/backend/seafile"
 	_ "github.com/rclone/rclone/backend/sftp"
